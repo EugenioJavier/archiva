@@ -14,9 +14,9 @@ RUN curl -sSLo /apache-archiva-$VERSION-bin.tar.gz http://archive.apache.org/dis
 #
 # Adjust ownership and Perform the data directory initialization
 #
-#ADD data_dirs.env /data_dirs.env
-#ADD init.bash /init.bash
-#ADD jetty_conf /jetty_conf
+ADD data_dirs.env /data_dirs.env
+ADD init.bash /init.bash
+ADD jetty_conf /jetty_conf
 # Sync calls are due to https://github.com/docker/docker/issues/9547
 RUN useradd -d /opt/archiva/data -m archiva &&\
   cd /opt && chown -R archiva:archiva archiva &&\
