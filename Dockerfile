@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-MAINTAINER Javier Cabezas y Eugenio González <eugeniofidel@gmail.com>
+MAINTAINER Javier Cabezas y Eugenio F. González <eugeniofidel@gmail.com>
 
 ENV VERSION 2.2.0
 
