@@ -1,4 +1,3 @@
-
 !# /bin/bash
 
 # Script to open Archiva and create admin user 
