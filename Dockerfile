@@ -1,12 +1,14 @@
-
 FROM ubuntu:14.04
-MAINTAINER Javier Cabezas y Eugenio F. González <eugeniofidel@gmail.com>
+MAINTAINER Javier Cabezas <jcabezasgivica@gmail.com> y Eugenio F. González <eugeniofidel@gmail.com>
 
 ENV VERSION 2.2.0
+ENV USERNAME admin
+ENV PASSWORD admin
 
-#
-# instalamos java, descargamos el fichero de instalación de archiva, lo descomprimimos y lo ubicamos en la carpeta /opt
-#
+# Java,curl and wget installations 
+# Archiva file download, decompression and copy of all the files to folder /opt
+
+
 RUN sudo apt-get update \
         && sudo apt-get -y install openjdk-7-jre-headless \
         && sudo apt-get -y install curl \
@@ -16,19 +18,23 @@ RUN sudo apt-get update \
         && sudo mv apache-archiva-$VERSION /opt/
 
 #
-# Nos colocamos en el directorio donde está el ejecutable que lanza archiva
+# Set up of the working directory in which Archiva security configuration file is found
 #
- WORKDIR /opt/apache-archiva-$VERSION/bin/
+
+ WORKDIR /opt/apache-archiva-$VERSION/conf/
 
 #
-#copiamos en el directorio de trabajo el fichero con el script
+# Copy of the script into the working folder
 #
-COPY scriptArchiva.sh /opt/apache-archiva-$VERSION/bin/
+
+COPY entrypoint.sh /opt/apache-archiva-$VERSION/conf/
  
 #
-#Modificamos los permisos de scriptArchiva.sh
+# Set up of required permissions on script file 
 #
-RUN chmod 777 scriptArchiva.sh
 
-#ENTRYPOINT ./scriptArchiva.sh
-ENTRYPOINT bash -C './scriptArchiva.sh';'bash'
+RUN chmod 777 entrypoint.sh
+
+
+ENTRYPOINT bash -C './entrypoint.sh';'bash'
+
