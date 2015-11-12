@@ -5,26 +5,34 @@
 
 
 # creating security.properties file
+
 touch security.properties
 # Write whithin this file security.policy.password.rule.numericalcount.enabled=false
 # to allow passwords whithout digital caracters in it
+
+
+touch security.properties
+
+# Write security.policy.password.rule.numericalcount.enabled=false on this file
+# to allow passwords without digital caracters in Archiva
+
+
 echo "security.policy.password.rule.numericalcount.enabled=false" >> security.properties
 
 # After that we need to go to the bin directory, where the archiva file is
 cd ..
 cd bin
-#We're now in archiva bin folder 
+
+
+# We're now in archiva bin folder 
+
 echo The script is initiating
 ./archiva console &
 
 # The following sleep instructions are addressed to give Archiva enough time to finish its start rutines
 
-sleep 10
-sleep 10
-sleep 10
-sleep 10
-sleep 10
-sleep 10
+
+sleep 60
 
 # Curl command to add a new user in Archiva via REST service
 
