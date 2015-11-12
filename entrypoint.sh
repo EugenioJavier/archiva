@@ -1,3 +1,4 @@
+
 !# /bin/bash
 
 # Script to open Archiva and create admin user 
@@ -5,9 +6,12 @@
 
 
 # creating security.properties file
+
 touch security.properties
+
 # Write security.policy.password.rule.numericalcount.enabled=false on this file
 # to allow passwords without digital caracters in Archiva
+
 echo "security.policy.password.rule.numericalcount.enabled=false" >> security.properties
 
 # After that we need to go to the bin directory, where the archiva file is
