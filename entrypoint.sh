@@ -6,7 +6,6 @@
 
 # creating security.properties file
 
-touch security.properties
 # Write whithin this file security.policy.password.rule.numericalcount.enabled=false
 # to allow passwords whithout digital caracters in it
 
