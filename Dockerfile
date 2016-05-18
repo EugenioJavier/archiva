@@ -1,4 +1,3 @@
-
 FROM ubuntu:14.04
 MAINTAINER Javier Cabezas <jcabezasgivica@gmail.com> y Eugenio F. González <eugeniofidel@gmail.com>
 
